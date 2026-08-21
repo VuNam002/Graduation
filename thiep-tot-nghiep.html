@@ -1,0 +1,574 @@
+<title>Lễ Tốt Nghiệp Minh Anh</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap">
+
+<style>
+  :root{
+    --bg: #f7f1e3;
+    --surface: #fffdf8;
+    --surface-2: #efe6cf;
+    --ink: #1c1810;
+    --ink-soft: #5b5340;
+    --gold: #9a7418;
+    --gold-strong: #7a5a10;
+    --gold-bright: #c9a227;
+    --line: rgba(28,24,16,0.16);
+    --shadow: rgba(35,26,8,0.16);
+    --font-display: 'Playfair Display', 'Times New Roman', serif;
+    --font-body: 'Be Vietnam Pro', 'Segoe UI', sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg: #0b0a08;
+      --surface: #15130e;
+      --surface-2: #1e1b13;
+      --ink: #f4ecd8;
+      --ink-soft: #c7bb98;
+      --gold: #d4af37;
+      --gold-strong: #f0d67a;
+      --gold-bright: #e8cf7a;
+      --line: rgba(212,175,55,0.28);
+      --shadow: rgba(0,0,0,0.55);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg: #0b0a08;
+    --surface: #15130e;
+    --surface-2: #1e1b13;
+    --ink: #f4ecd8;
+    --ink-soft: #c7bb98;
+    --gold: #d4af37;
+    --gold-strong: #f0d67a;
+    --gold-bright: #e8cf7a;
+    --line: rgba(212,175,55,0.28);
+    --shadow: rgba(0,0,0,0.55);
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  img{ max-width: 100%; }
+
+  /* fixed engraved frame */
+  .frame{
+    position: fixed;
+    inset: 12px;
+    border: 1px solid var(--line);
+    pointer-events: none;
+    z-index: 40;
+  }
+  .frame::before{
+    content: "";
+    position: absolute;
+    inset: 6px;
+    border: 1px solid var(--line);
+  }
+  .corner{ position: absolute; width: 34px; height: 34px; opacity: .8; }
+  .corner svg{ width: 100%; height: 100%; }
+  .corner.tl{ top: -1px; left: -1px; }
+  .corner.tr{ top: -1px; right: -1px; transform: scaleX(-1); }
+  .corner.bl{ bottom: -1px; left: -1px; transform: scaleY(-1); }
+  .corner.br{ bottom: -1px; right: -1px; transform: scale(-1,-1); }
+  @media (max-width: 640px){ .frame{ display:none; } }
+
+  .wrap{ position: relative; z-index: 1; max-width: 860px; margin: 0 auto; padding: 0 1.6rem; }
+
+  section{ padding: 5.5rem 0; }
+  @media (max-width: 640px){ section{ padding: 3.6rem 0; } }
+
+  .eyebrow{
+    font-family: var(--font-body);
+    font-size: .74rem;
+    letter-spacing: .38em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .rule{
+    width: 64px; height: 1px; margin: 1.1rem auto;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 6rem 1.6rem 4rem;
+    position: relative;
+  }
+  #hero-canvas{
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .hero > *{ position: relative; z-index: 1; }
+
+  .laurel{ width: min(340px, 70vw); margin: 0 auto 1.4rem; }
+  .laurel .initials{
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    fill: var(--gold-strong);
+    font-weight: 600;
+  }
+  .laurel .year{
+    font-family: var(--font-body);
+    font-size: .62rem;
+    letter-spacing: .3em;
+    fill: var(--ink-soft);
+  }
+
+  .hero .eyebrow{ margin-bottom: .2rem; }
+
+  h1.name{
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(2.6rem, 8vw, 5rem);
+    margin: .3rem 0 .6rem;
+    text-wrap: balance;
+    letter-spacing: .01em;
+  }
+
+  .degree{
+    font-family: var(--font-body);
+    font-weight: 500;
+    color: var(--ink-soft);
+    max-width: 34rem;
+    margin: 0 auto;
+    font-size: 1rem;
+  }
+  .degree strong{ color: var(--ink); font-weight: 600; }
+
+  .invite-line{
+    max-width: 32rem;
+    margin: 1.6rem auto 0;
+    font-size: 1.06rem;
+    color: var(--ink-soft);
+  }
+
+  .scroll-hint{
+    margin-top: 3.2rem;
+    font-size: .72rem;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+  }
+  .scroll-hint .stem{
+    width: 1px; height: 34px;
+    background: linear-gradient(var(--gold), transparent);
+    animation: pulse-stem 2.4s ease-in-out infinite;
+  }
+  @media (prefers-reduced-motion: reduce){ .scroll-hint .stem{ animation: none; } }
+  @keyframes pulse-stem{ 0%,100%{ opacity:.3; } 50%{ opacity: 1; } }
+
+  /* ---------- reveal ---------- */
+  .reveal{ opacity: 0; transform: translateY(22px); transition: opacity .8s ease, transform .8s ease; }
+  .reveal.in{ opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ transition: none; opacity: 1; transform: none; }
+  }
+
+  .section-title{
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1.7rem, 3.6vw, 2.3rem);
+    text-align: center;
+    margin: 0 0 .4rem;
+    text-wrap: balance;
+  }
+  .section-lede{
+    text-align: center;
+    color: var(--ink-soft);
+    max-width: 30rem;
+    margin: 0 auto;
+    font-size: .98rem;
+  }
+
+  /* ---------- agenda ---------- */
+  .agenda{ display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; margin-top: 3rem; }
+  @media (max-width: 640px){ .agenda{ grid-template-columns: 1fr; } }
+  .agenda-card{
+    background: var(--surface);
+    border: 1px solid var(--line);
+    padding: 2.2rem 1.8rem;
+    text-align: center;
+    box-shadow: 0 18px 40px -28px var(--shadow);
+  }
+  .agenda-card .tag{
+    font-size: .68rem; letter-spacing: .3em; text-transform: uppercase;
+    color: var(--gold); font-weight: 600;
+  }
+  .agenda-card .icon{ width: 46px; height: 46px; margin: 1rem auto .8rem; }
+  .agenda-card .icon svg{ width:100%; height:100%; stroke: var(--gold); fill:none; stroke-width:1.3; }
+  .agenda-card h3{
+    font-family: var(--font-display); font-weight: 600; font-size: 1.3rem; margin: .2rem 0 .9rem;
+  }
+  .agenda-card .datum{ font-size: .96rem; color: var(--ink); margin: .25rem 0; }
+  .agenda-card .datum.dim{ color: var(--ink-soft); font-size: .88rem; }
+
+  /* ---------- countdown ---------- */
+  .countdown{
+    display: flex; justify-content: center; gap: clamp(.8rem, 3vw, 2.2rem);
+    margin-top: 2.6rem; flex-wrap: wrap;
+  }
+  .cd-cell{ text-align: center; min-width: 72px; }
+  .cd-num{
+    font-family: var(--font-display); font-weight: 700;
+    font-size: clamp(2.1rem, 6vw, 3.2rem);
+    color: var(--gold-strong);
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+  }
+  .cd-label{
+    margin-top: .5rem; font-size: .66rem; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .cd-sep{ font-family: var(--font-display); font-size: clamp(2.1rem,6vw,3.2rem); color: var(--line); line-height: 1; align-self: flex-start; margin-top: -2px; }
+
+  /* ---------- location ---------- */
+  .loc-grid{ display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; margin-top: 3rem; }
+  @media (max-width: 640px){ .loc-grid{ grid-template-columns: 1fr; } }
+  .loc-card{
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+    padding: 1.9rem 1.7rem;
+    display: flex; flex-direction: column; gap: .9rem;
+  }
+  .loc-card .icon{ width: 34px; height: 34px; }
+  .loc-card .icon svg{ width:100%; height:100%; stroke: var(--gold); fill:none; stroke-width:1.3; }
+  .loc-card h4{ font-family: var(--font-display); font-size: 1.14rem; margin: 0; font-weight:600; }
+  .loc-card p{ margin: 0; color: var(--ink-soft); font-size: .92rem; }
+  .loc-card a.maplink{
+    align-self: flex-start;
+    margin-top: .3rem;
+    font-size: .78rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--gold-strong);
+    text-decoration: none;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 2px;
+  }
+  .loc-card a.maplink:hover{ color: var(--gold); }
+  .loc-card a.maplink:focus-visible{ outline: 2px solid var(--gold); outline-offset: 3px; }
+
+  /* ---------- moments ---------- */
+  .moments{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.3rem; margin-top: 3rem; }
+  @media (max-width: 760px){ .moments{ grid-template-columns: 1fr; } }
+  .moment{
+    border: 1px solid var(--line);
+    background: var(--surface);
+    padding: 2.2rem 1.4rem 1.6rem;
+    text-align: center;
+  }
+  .moment .icon{ width: 64px; height: 64px; margin: 0 auto 1rem; }
+  .moment .icon svg{ width:100%; height:100%; stroke: var(--gold); fill:none; stroke-width:1.2; }
+  .moment h4{ font-family: var(--font-display); font-weight:600; font-size: 1.1rem; margin: 0 0 .5rem; }
+  .moment p{ margin: 0; font-size: .88rem; color: var(--ink-soft); }
+
+  /* ---------- closing ---------- */
+  .closing{ text-align: center; }
+  .closing blockquote{
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    max-width: 32rem;
+    margin: 0 auto;
+    line-height: 1.6;
+    color: var(--ink);
+    text-wrap: balance;
+  }
+  .closing .signoff{
+    margin-top: 1.6rem;
+    font-size: .9rem;
+    color: var(--ink-soft);
+  }
+  .closing .family{
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: .3rem;
+    color: var(--gold-strong);
+  }
+
+  footer{
+    text-align: center;
+    padding: 3rem 1.6rem 4.5rem;
+    font-size: .72rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+</style>
+
+<div class="frame">
+  <div class="corner tl"><svg viewBox="0 0 34 34"><path d="M2 34 L2 10 Q2 2 10 2 L34 2" stroke="var(--gold)" stroke-width="1" fill="none"/></svg></div>
+  <div class="corner tr"><svg viewBox="0 0 34 34"><path d="M2 34 L2 10 Q2 2 10 2 L34 2" stroke="var(--gold)" stroke-width="1" fill="none"/></svg></div>
+  <div class="corner bl"><svg viewBox="0 0 34 34"><path d="M2 34 L2 10 Q2 2 10 2 L34 2" stroke="var(--gold)" stroke-width="1" fill="none"/></svg></div>
+  <div class="corner br"><svg viewBox="0 0 34 34"><path d="M2 34 L2 10 Q2 2 10 2 L34 2" stroke="var(--gold)" stroke-width="1" fill="none"/></svg></div>
+</div>
+
+<canvas id="hero-canvas" aria-hidden="true"></canvas>
+
+<main class="wrap">
+
+  <section class="hero">
+    <svg class="laurel" id="laurel-svg" viewBox="0 0 340 220" aria-hidden="true">
+      <text x="170" y="118" text-anchor="middle" class="initials">M · A</text>
+      <text x="170" y="140" text-anchor="middle" class="year">K H Ó A   2 0 2 2 – 2 0 2 6</text>
+    </svg>
+
+    <p class="eyebrow">Trân trọng kính mời</p>
+    <h1 class="name">Nguyễn&nbsp;Minh&nbsp;Anh</h1>
+    <p class="degree">Cử nhân <strong>Khoa học Máy tính</strong><br>Viện Công nghệ Thông tin &amp; Truyền thông — Đại học Bách Khoa Hà Nội</p>
+
+    <p class="invite-line">Sau bốn năm học tập và rèn luyện, tôi trân trọng kính mời quý Thầy Cô, gia đình và bạn bè đến chung vui, chia sẻ niềm vui trong ngày tốt nghiệp của mình.</p>
+
+    <div class="scroll-hint"><span class="stem"></span>Cuộn xuống</div>
+  </section>
+
+  <section id="agenda">
+    <p class="eyebrow reveal">Chương trình</p>
+    <h2 class="section-title reveal">Hai khoảnh khắc đáng nhớ</h2>
+    <p class="section-lede reveal">Kính mời quý vị tham dự một trong hai phần, hoặc trọn vẹn cả ngày cùng gia đình.</p>
+
+    <div class="agenda">
+      <div class="agenda-card reveal">
+        <p class="tag">Buổi sáng</p>
+        <div class="icon"><svg viewBox="0 0 48 48"><path d="M24 6 4 15l20 9 20-9-20-9Z"/><path d="M12 20v10c0 4 5.4 7 12 7s12-3 12-7V20"/><path d="M44 15v12"/></svg></div>
+        <h3>Lễ trao bằng tốt nghiệp</h3>
+        <p class="datum">Chủ Nhật, 15 tháng 11, 2026</p>
+        <p class="datum">09:00 – 11:30</p>
+        <p class="datum dim">Hội trường Tạ Quang Bửu<br>Đại học Bách Khoa Hà Nội</p>
+      </div>
+      <div class="agenda-card reveal">
+        <p class="tag">Buổi tối</p>
+        <div class="icon"><svg viewBox="0 0 48 48"><path d="M14 26c0-8 4-16 10-20 6 4 10 12 10 20a10 10 0 0 1-20 0Z"/><path d="M24 26v16"/><path d="M16 42h16"/></svg></div>
+        <h3>Tiệc mừng tốt nghiệp</h3>
+        <p class="datum">Cùng ngày, 15/11/2026</p>
+        <p class="datum">18:00 – 21:00</p>
+        <p class="datum dim">Nhà hàng Sen Tây Hồ<br>614 Lạc Long Quân, Tây Hồ, Hà Nội</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="countdown">
+    <p class="eyebrow reveal">Đếm ngược</p>
+    <h2 class="section-title reveal">Còn bao lâu nữa?</h2>
+    <p class="section-lede reveal">Tính đến giờ khai lễ, 09:00 ngày 15&nbsp;tháng&nbsp;11&nbsp;năm&nbsp;2026.</p>
+
+    <div class="countdown reveal" id="countdown-target" data-target="2026-11-15T09:00:00+07:00">
+      <div class="cd-cell"><div class="cd-num" id="cd-days">00</div><div class="cd-label">Ngày</div></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-cell"><div class="cd-num" id="cd-hours">00</div><div class="cd-label">Giờ</div></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-cell"><div class="cd-num" id="cd-mins">00</div><div class="cd-label">Phút</div></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-cell"><div class="cd-num" id="cd-secs">00</div><div class="cd-label">Giây</div></div>
+    </div>
+  </section>
+
+  <section id="location">
+    <p class="eyebrow reveal">Địa điểm</p>
+    <h2 class="section-title reveal">Đường đến buổi lễ</h2>
+    <p class="section-lede reveal">Bấm vào từng địa điểm để mở chỉ đường trên Google Maps.</p>
+
+    <div class="loc-grid">
+      <div class="loc-card reveal">
+        <div class="icon"><svg viewBox="0 0 34 34"><path d="M17 3c6 0 10 4.6 10 10.4C27 21 17 31 17 31S7 21 7 13.4C7 7.6 11 3 17 3Z"/><circle cx="17" cy="13" r="4"/></svg></div>
+        <h4>Hội trường Tạ Quang Bửu</h4>
+        <p>Số 1 Đại Cồ Việt, Hai Bà Trưng, Hà Nội</p>
+        <a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=H%E1%BB%99i%20tr%C6%B0%E1%BB%9Dng%20T%E1%BA%A1%20Quang%20B%E1%BB%ADu%2C%20%C4%90%E1%BA%A1i%20h%E1%BB%8Dc%20B%C3%A1ch%20Khoa%20H%C3%A0%20N%E1%BB%99i">Mở bản đồ ↗</a>
+      </div>
+      <div class="loc-card reveal">
+        <div class="icon"><svg viewBox="0 0 34 34"><path d="M17 3c6 0 10 4.6 10 10.4C27 21 17 31 17 31S7 21 7 13.4C7 7.6 11 3 17 3Z"/><circle cx="17" cy="13" r="4"/></svg></div>
+        <h4>Nhà hàng Sen Tây Hồ</h4>
+        <p>614 Lạc Long Quân, Tây Hồ, Hà Nội</p>
+        <a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Nh%C3%A0%20h%C3%A0ng%20Sen%20T%C3%A2y%20H%E1%BB%93%2C%20614%20L%E1%BA%A1c%20Long%20Qu%C3%A2n%2C%20T%C3%A2y%20H%E1%BB%93%2C%20H%C3%A0%20N%E1%BB%99i">Mở bản đồ ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="moments">
+    <p class="eyebrow reveal">Hành trình</p>
+    <h2 class="section-title reveal">Bốn năm, ba chặng đường</h2>
+    <p class="section-lede reveal">Từ giảng đường đến lễ đài — một chặng đường đáng để nhìn lại.</p>
+
+    <div class="moments">
+      <div class="moment reveal">
+        <div class="icon"><svg viewBox="0 0 64 64"><path d="M32 14 8 24l24 10 24-10-24-10Z"/><path d="M18 28v10c0 4.4 6.3 8 14 8s14-3.6 14-8V28"/><path d="M56 24v14"/></svg></div>
+        <h4>Nỗ lực trên giảng đường</h4>
+        <p>Bốn năm học tập, nghiên cứu và không ngừng trau dồi.</p>
+      </div>
+      <div class="moment reveal">
+        <div class="icon"><svg viewBox="0 0 64 64"><rect x="18" y="10" width="28" height="38" rx="2"/><path d="M24 20h16M24 27h16M24 34h10"/><path d="M18 48l6 6M46 48l-6 6"/></svg></div>
+        <h4>Vinh danh thành quả</h4>
+        <p>Tấm bằng tốt nghiệp — món quà cho những tháng ngày kiên trì.</p>
+      </div>
+      <div class="moment reveal">
+        <div class="icon"><svg viewBox="0 0 64 64"><circle cx="32" cy="34" r="12"/><path d="M32 4v8M32 56v4M6 34h6M52 34h6M13 15l5 5M46 44l5 5M13 53l5-5M46 24l5-5"/></svg></div>
+        <h4>Khởi đầu mới</h4>
+        <p>Một chương mới bắt đầu, với hành trang là những gì đã học được.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing">
+    <div class="reveal">
+      <p class="eyebrow">Lời cảm ơn</p>
+      <blockquote>“Sự hiện diện của quý Thầy Cô, gia đình và bạn bè là niềm vinh dự và hạnh phúc lớn lao nhất trong ngày đặc biệt này.”</blockquote>
+      <p class="signoff">Trân trọng,</p>
+      <p class="family">Gia đình Nguyễn Minh Anh</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>Lễ Tốt Nghiệp · 15 · 11 · 2026</footer>
+
+<script>
+(function(){
+  "use strict";
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* laurel wreath generated programmatically */
+  var svg = document.getElementById("laurel-svg");
+  var svgNS = "http://www.w3.org/2000/svg";
+  var cx = 170, cy = 115, rx = 148, ry = 92;
+  function buildBranch(dir){
+    var g = document.createElementNS(svgNS, "g");
+    var leaves = 11;
+    for (var i = 0; i < leaves; i++){
+      var t = i / (leaves - 1);
+      var angle = (Math.PI * 0.5) + t * (Math.PI * 0.62) * dir;
+      var x = cx + dir * -1 * 0 + Math.cos(angle) * rx * dir * -1;
+      var yOff = Math.sin(angle) * ry;
+      var px = cx + dir * Math.cos(Math.PI*0.14 + t*0.9) * (18 + t*118) * -1 * -1;
+      var leafX = cx - dir * (20 + t * 118);
+      var leafY = cy + 78 - t * 96;
+      var rot = dir * (18 + t * 46);
+      var scale = 0.55 + t * 0.55;
+      var el = document.createElementNS(svgNS, "ellipse");
+      el.setAttribute("cx", leafX);
+      el.setAttribute("cy", leafY);
+      el.setAttribute("rx", 9 * scale);
+      el.setAttribute("ry", 4.2 * scale);
+      el.setAttribute("transform", "rotate(" + (rot * -1) + " " + leafX + " " + leafY + ")");
+      el.setAttribute("fill", "none");
+      el.setAttribute("stroke", "var(--gold)");
+      el.setAttribute("stroke-width", "1.1");
+      el.setAttribute("opacity", 0.55 + t * 0.35);
+      g.appendChild(el);
+    }
+    var stem = document.createElementNS(svgNS, "path");
+    stem.setAttribute("d", "M " + (cx - dir*18) + " " + (cy+80) + " Q " + (cx - dir*90) + " " + (cy+20) + " " + (cx - dir*138) + " " + (cy-18));
+    stem.setAttribute("fill", "none");
+    stem.setAttribute("stroke", "var(--gold)");
+    stem.setAttribute("stroke-width", "1.1");
+    stem.setAttribute("opacity", "0.7");
+    g.insertBefore(stem, g.firstChild);
+    return g;
+  }
+  svg.insertBefore(buildBranch(1), svg.firstChild);
+  svg.insertBefore(buildBranch(-1), svg.firstChild);
+
+  /* countdown */
+  var targetEl = document.getElementById("countdown-target");
+  var target = new Date(targetEl.getAttribute("data-target")).getTime();
+  var dEl = document.getElementById("cd-days"),
+      hEl = document.getElementById("cd-hours"),
+      mEl = document.getElementById("cd-mins"),
+      sEl = document.getElementById("cd-secs");
+  function pad(n){ return String(n).padStart(2, "0"); }
+  function tick(){
+    var diff = Math.max(0, target - Date.now());
+    var s = Math.floor(diff / 1000);
+    var days = Math.floor(s / 86400);
+    var hours = Math.floor((s % 86400) / 3600);
+    var mins = Math.floor((s % 3600) / 60);
+    var secs = s % 60;
+    dEl.textContent = pad(days);
+    hEl.textContent = pad(hours);
+    mEl.textContent = pad(mins);
+    sEl.textContent = pad(secs);
+  }
+  tick();
+  setInterval(tick, 1000);
+
+  /* scroll reveal */
+  var items = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window && !reduced){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.15 });
+    items.forEach(function(el){ io.observe(el); });
+  } else {
+    items.forEach(function(el){ el.classList.add("in"); });
+  }
+
+  /* ambient gold dust in hero */
+  var canvas = document.getElementById("hero-canvas");
+  if (canvas && !reduced){
+    var ctx = canvas.getContext("2d");
+    var hero = document.querySelector(".hero");
+    var particles = [];
+    var W, H;
+    function resize(){
+      W = canvas.width = hero.offsetWidth;
+      H = canvas.height = hero.offsetHeight;
+    }
+    function seed(){
+      particles = [];
+      var count = Math.min(46, Math.floor((W * H) / 26000));
+      for (var i = 0; i < count; i++){
+        particles.push({
+          x: Math.random() * W,
+          y: Math.random() * H,
+          r: 0.6 + Math.random() * 1.6,
+          vy: 0.06 + Math.random() * 0.16,
+          vx: (Math.random() - 0.5) * 0.06,
+          a: 0.15 + Math.random() * 0.35
+        });
+      }
+    }
+    var goldRGB = getComputedStyle(document.documentElement).getPropertyValue("color-scheme").includes("dark") ? "212,175,55" : "154,116,24";
+    function draw(){
+      ctx.clearRect(0, 0, W, H);
+      particles.forEach(function(p){
+        p.y -= p.vy;
+        p.x += p.vx;
+        if (p.y < -10){ p.y = H + 10; p.x = Math.random() * W; }
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(" + goldRGB + "," + p.a + ")";
+        ctx.fill();
+      });
+      requestAnimationFrame(draw);
+    }
+    resize(); seed();
+    window.addEventListener("resize", function(){ resize(); seed(); });
+    requestAnimationFrame(draw);
+  }
+})();
+</script>

@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Fixed brand palette — this page is a designed invitation, not a
+  theme-adaptive app, so it intentionally does not follow the
+  visitor's OS light/dark preference (same as the reference site).
+*/
+:root {
+  --black: #0c0a06;
+  --black-2: #16130c;
+  --gold: #d4af37;
+  --gold-soft: #f4dd8a;
+  --gold-deep: #a9821f;
+  --cream: #fdf9f0;
+  --cream-2: #f7efdb;
+  --paper: #fbf4e3;
+  --ink: #2a2116;
+  --ink-soft: #7a6f5a;
+  --line: rgba(212, 175, 55, 0.28);
+  --highlight-pink: #ffc2d1;
+  --highlight-green: #c7e8a8;
+  --highlight-blue: #b7ddff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+}
+
+.font-script {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.highlight-mark {
+  background-image: linear-gradient(transparent 55%, var(--hl, var(--highlight-pink)) 55%);
+  padding: 0 0.05em;
+}
+
+@keyframes drift {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-14px) rotate(6deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+.animate-drift {
+  animation: drift 6s ease-in-out infinite;
+}
+
+@keyframes pulse-stem {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 1; }
+}
+.animate-pulse-stem {
+  animation: pulse-stem 2.2s ease-in-out infinite;
+}
+
+/* Three distinct flight paths so multiple planes don't overlap in lock-step. */
+@keyframes fly-across-a {
+  0%   { transform: translate(-18vw, 58vh) rotate(-6deg) scale(0.9); opacity: 0; }
+  10%  { opacity: 1; }
+  50%  { transform: translate(52vw, 8vh) rotate(4deg) scale(1); }
+  90%  { opacity: 1; }
+  100% { transform: translate(122vw, -28vh) rotate(-6deg) scale(0.9); opacity: 0; }
+}
+@keyframes fly-across-b {
+  0%   { transform: translate(-18vw, -18vh) rotate(24deg) scale(0.8); opacity: 0; }
+  10%  { opacity: 1; }
+  50%  { transform: translate(50vw, 42vh) rotate(16deg) scale(0.95); }
+  90%  { opacity: 1; }
+  100% { transform: translate(122vw, 78vh) rotate(24deg) scale(0.8); opacity: 0; }
+}
+@keyframes fly-across-c {
+  0%   { transform: translate(-18vw, 30vh) rotate(-2deg) scale(1.05); opacity: 0; }
+  10%  { opacity: 1; }
+  50%  { transform: translate(52vw, 46vh) rotate(6deg) scale(1.1); }
+  90%  { opacity: 1; }
+  100% { transform: translate(122vw, 14vh) rotate(-2deg) scale(1.05); opacity: 0; }
+}
+.animate-fly-a {
+  animation-name: fly-across-a;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+.animate-fly-b {
+  animation-name: fly-across-b;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+.animate-fly-c {
+  animation-name: fly-across-c;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+  .animate-drift,
+  .animate-pulse-stem,
+  .animate-fly-a,
+  .animate-fly-b,
+  .animate-fly-c {
+    animation: none;
+  }
+  .animate-fly-a { opacity: 0.85; transform: translate(14vw, 22vh) rotate(-6deg); }
+  .animate-fly-b { opacity: 0.85; transform: translate(10vw, 8vh) rotate(24deg); }
+  .animate-fly-c { opacity: 0.85; transform: translate(18vw, 40vh) rotate(-2deg); }
+  html {
+    scroll-behavior: auto;
+  }
+}
